@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'shikun'
+
 import sys
 
 sys.path.append("..")
@@ -13,10 +14,11 @@ from Base.BaseAppiumServer import AppiumServer
 from multiprocessing import Pool
 import unittest
 from Base.BaseInit import init, mk_file
-from Base.BaseStatistics import countDate, writeExcel, countSumDevices
+from Base.BaseStatistics import countDate, writeExcel
 from Base.BasePickle import *
 from datetime import datetime
 from Base.BaseApk import ApkInfo
+
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
@@ -29,6 +31,7 @@ def kill_adb():
     else:
         os.popen("killall adb")
     os.system("adb start-server")
+
 
 def runnerPool(getDevices):
     devices_Pool = []
@@ -65,6 +68,7 @@ def runnerCaseApp(devices):
     endtime = datetime.now()
     countDate(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str((endtime - starttime).seconds) + "秒")
 
+
 if __name__ == '__main__':
 
     kill_adb()
@@ -90,4 +94,4 @@ if __name__ == '__main__':
         writeExcel()
         appium_server.stop_server(l_devices)
     else:
-        print("没有可用的安卓设备")
+        print("No hay dispositivo Android disponible")

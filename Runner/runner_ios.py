@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'shikun'
-import sys
+
 import random
+import sys
 
 sys.path.append("..")
-import platform
-from Base.BaseAndroidPhone import *
 from Base.BaseIosCommand import *
 from Base.BaseRunner import ParametrizedTestCase
 from TestCase.HomeTest import HomeTest
-from TestCase.ContactTest import ContactTest
-from TestCase.CardsTest import CardsTest
-from TestCase.MeTest import MeTest
-from TestCase.HistoryTest import HistoryTest
-from TestCase.TeamTest import TeamTest
-from TestCase.TestWeiQunTest import TestWeiQunTest
 from Base.BaseAppiumServer import AppiumServer
 from multiprocessing import Pool
 import unittest
@@ -90,4 +83,4 @@ if __name__ == '__main__':
         writeExcel()
         appium_server.stop_server(l_devices)
     else:
-        print("没有可用的安卓设备")
+        print("No hay dispositivo Android disponible")

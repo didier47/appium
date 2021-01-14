@@ -1,0 +1,3 @@
+2021-01-14 14:44:07,211  - INFO - ----  test001_Primer test_//*[@text="Perfil"]_click          ----
+2021-01-14 14:44:07,397  - INFO - ----  test001_Primer test_ _           ----
+2021-01-14 14:44:07,469  - INFO - [CheckPoint_1]: testFirstOpen_ : OK

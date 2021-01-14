@@ -1,25 +1,17 @@
 testinfo:
-    - id: test001
-      title: 第一次用例
-      info: 打开app
+  - id: test001
+    title: Primer test
+    info: Abrir aplicación
 testcase:
-    - element_info: //*[@text="跳过广告"]
-      find_type: xpath
-      operate_type: click
-      info: 跳过广告
-    - element_info: //*[@text="账号"]
-      find_type: xpath
-      operate_type: click
-      info: 点击账号
-    - element_info: //*[@text="我的钱包"]
-      find_type: xpath
-      operate_type: click
-      info: 我的钱包
-    - bounds: [[0,1217],[1080,1337]]
-      operate_type: tap
-      duration: 100
-      info: 用坐标点击优惠券
+  - element_info: //*[@text="Perfil"]
+    find_type: xpath
+    operate_type: click
+    info: Perfil
+  - element_info: //*[@text="Iniciar sesión"]
+    find_type: xpath
+    operate_type: click
+    info: Iniciar sesión
 check:
-    - blouns: //*[@text="未使用"]
-      find_type: xpath
-      info: 打开页面成功
+  - blouns: //*[@text="No usado"]
+    find_type: xpath
+    info: Abra la página con éxito

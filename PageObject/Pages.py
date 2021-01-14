@@ -1,9 +1,9 @@
-from Base.BaseError import get_error
-from Base.BaseYaml import getYam
-from Base.BaseOperate import OperateElement
-import time
-from Base.BaseElementEnmu import Element as be
 import os
+import time
+
+from Base.BaseElementEnmu import Element as be
+from Base.BaseError import get_error
+from Base.BaseOperate import OperateElement
 from PageObject.SumResult import statistics_result
 
 PATH = lambda p: os.path.abspath(
@@ -43,7 +43,7 @@ class PagesObjects:
     '''
 
     def operate(self):
-        if self.test_msg[0] is False: # 如果用例编写错误
+        if self.test_msg[0] is False:  # 如果用例编写错误
             self.isOperate = False
             return False
         for item in self.testCase:
@@ -105,7 +105,6 @@ class PagesObjects:
         m_s_g = self.msg + "\n" if self.msg != "" else ""
         # 如果有重跑机制，成功后会默认把日志传进来
 
-
         # if kwargs.get("check_point", "0") != "0": 自定义检查点
         #     return kwargs["check_point"]
 
@@ -113,8 +112,8 @@ class PagesObjects:
             for item in self.testcheck:
                 if kwargs.get("check", be.DEFAULT_CHECK) == be.TOAST:
                     result = \
-                    self.operateElement.toast(item["element_info"], testInfo=self.testInfo, logTest=self.logTest)[
-                        "result"]
+                        self.operateElement.toast(item["element_info"], testInfo=self.testInfo, logTest=self.logTest)[
+                            "result"]
                     if result is False:
                         m = get_error(
                             {"type": be.DEFAULT_CHECK, "element_info": item["element_info"], "info": item["info"]})

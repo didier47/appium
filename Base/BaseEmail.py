@@ -13,11 +13,11 @@ def _format_addr(s):
     name, addr = parseaddr(s)
     return formataddr((Header(name, 'utf-8').encode(), addr))
 def send_mail(**kwargs):
-    '''
+    """
     :param f: 附件路径
     :param to_addr:发给的人 []
     :return:
-    '''
+    """
     from_addr = kwargs["mail_user"]
     password = kwargs["mail_pass"]
     # to_addr = "ashikun@126.com"

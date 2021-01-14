@@ -1,8 +1,9 @@
-
-from Base.BaseRunner import ParametrizedTestCase
 import os
 import sys
+
+from Base.BaseRunner import ParametrizedTestCase
 from PageObject.Home.FirstOpenPage import FirstOpenPage
+
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
@@ -16,8 +17,6 @@ class HomeTest(ParametrizedTestCase):
         page = FirstOpenPage(app)
         page.operate()
         page.checkPoint()
-
-
 
     @classmethod
     def setUpClass(cls):
