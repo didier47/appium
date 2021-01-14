@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
-import socket
-import urllib.request
-from urllib.error import URLError
-from multiprocessing import Process
-import time
 import platform
+import socket
 import subprocess
+import time
+import urllib.request
+from multiprocessing import Process
+from urllib.error import URLError
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -23,7 +23,7 @@ class AppiumServer:
         """
         for i in range(0, len(self.kwargs)):
             cmd = "appium --session-override  -p %s -bp %s -U %s" % (
-            self.kwargs[i]["port"], self.kwargs[i]["bport"], self.kwargs[i]["devices"])
+                self.kwargs[i]["port"], self.kwargs[i]["bport"], self.kwargs[i]["devices"])
             print(cmd)
             if platform.system() == "Windows":  # windows下启动server
                 t1 = RunServer(cmd)
@@ -99,5 +99,4 @@ class RunServer(threading.Thread):
 
 
 if __name__ == "__main__":
-
     pass

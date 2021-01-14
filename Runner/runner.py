@@ -2,6 +2,7 @@
 
 __author__ = 'shikun'
 
+import random
 import sys
 
 sys.path.append("..")
@@ -15,7 +16,6 @@ from multiprocessing import Pool
 import unittest
 from Base.BaseInit import init, mk_file
 from Base.BaseStatistics import countDate, writeExcel
-from Base.BasePickle import *
 from datetime import datetime
 from Base.BaseApk import ApkInfo
 
@@ -84,7 +84,7 @@ if __name__ == '__main__':
             app["port"] = str(random.randint(4700, 4900))
             app["bport"] = str(random.randint(4700, 4900))
             app["systemPort"] = str(random.randint(4700, 4900))
-            app["app"] = PATH("../app/com.ximalaya.ting.android.apk") # 测试的app路径,喜马拉雅app
+            app["app"] = PATH("../app/com.ximalaya.ting.android.apk")  # 测试的app路径,喜马拉雅app
 
             l_devices.append(app)
 

@@ -1,6 +1,6 @@
-from Base.BaseYaml import getYam
-from Base.BaseOperate import OperateElement
 from Base.BaseElementEnmu import Element as be
+from Base.BaseOperate import OperateElement
+from Base.BaseYaml import getYam
 from PageObject.SumResult import statistics_result
 
 
@@ -58,7 +58,7 @@ class CollectSwipeDelPage:
                 # 计算出控件结束坐标
                 endX = width + startx
                 endY = height + starty
-                self.driver.swipe(endX-50, endY, starty+500, endY)
+                self.driver.swipe(endX - 50, endY, starty + 500, endY)
             if item.get("operate_type", "0") == be.GET_VALUE:
                 self.get_value.append(result["text"])
         return True

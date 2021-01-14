@@ -1,6 +1,6 @@
-from Base.BaseYaml import getYam
-from Base.BaseOperate import OperateElement
 from Base.BaseElementEnmu import Element as be
+from Base.BaseOperate import OperateElement
+from Base.BaseYaml import getYam
 from PageObject.SumResult import statistics_result
 
 

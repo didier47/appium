@@ -1,6 +1,5 @@
-import subprocess
-
 import os
+import subprocess
 
 '''
 获取ios下的硬件信息

@@ -1,8 +1,9 @@
 import logging
-import time
 import os
-from time import sleep
 import threading
+import time
+from time import sleep
+
 from Base.BaseAndroidPhone import getPhoneInfo
 
 PATH = lambda p: os.path.abspath(

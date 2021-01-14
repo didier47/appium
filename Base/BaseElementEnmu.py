@@ -1,6 +1,4 @@
-
 class Element(object):
-
     # 常用操作关键字
     find_element_by_id = "id"
     find_elements_by_id = "ids"
@@ -38,8 +36,7 @@ class Element(object):
     COMPARE = "compare"  # 历史数据和实际数据对比
     TOAST = "toast"
 
-
-    RE_CONNECT = 1 # 是否打开失败后再次运行一次用例
+    RE_CONNECT = 1  # 是否打开失败后再次运行一次用例
 
     INFO_FILE = "info.pickle"
     SUM_FILE = "sum.pickle"

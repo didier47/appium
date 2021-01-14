@@ -1,11 +1,8 @@
 import xlsxwriter
 
-from Base.BaseAndroidPhone import getPhoneInfo
 from Base.BaseElementEnmu import Element
 from Base.BaseExcel import OperateReport
-from Base.BaseInit import destroy
 from Base.BasePickle import *
-from datetime import datetime
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -69,7 +66,6 @@ def countInfo(**kwargs):
 
 # 本地没有设备用例的记录统计
 def countSumNoDevices(devices, result, _read, phone_name):
-
     if _read is None:
         _read = []
     # get_phone = getPhoneInfo(devices)

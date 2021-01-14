@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-from Base.BaseAppiumServer import AppiumServer
-from Base.BaseLog import myLog
-import unittest
-from appium import webdriver
 import os
-from Base.BaseElementEnmu import Element
-import platform
-import time
-from Base.BaseYaml import getYam
+import unittest
+
+from appium import webdriver
+
+from Base.BaseLog import myLog
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -72,6 +69,7 @@ class ParametrizedTestCase(unittest.TestCase):
         cls.driver.close_app()
         cls.driver.quit()
         pass
+
     def tearDown(self):
         pass
 

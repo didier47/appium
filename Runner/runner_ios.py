@@ -14,7 +14,6 @@ from multiprocessing import Pool
 import unittest
 from Base.BaseInit import init
 from Base.BaseStatistics import countDate, writeExcel
-from Base.BasePickle import *
 from datetime import datetime
 
 PATH = lambda p: os.path.abspath(

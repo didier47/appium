@@ -2,7 +2,6 @@ __author__ = 'shikun'
 
 import os
 
-
 '''
 操作文件
 '''

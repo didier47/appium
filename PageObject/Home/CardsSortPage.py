@@ -1,6 +1,6 @@
-from Base.BaseYaml import getYam
-from Base.BaseOperate import OperateElement
 from Base.BaseElementEnmu import Element as be
+from Base.BaseOperate import OperateElement
+from Base.BaseYaml import getYam
 from PageObject.SumResult import statistics_result
 
 
@@ -72,7 +72,8 @@ class CardsSortPage:
 
             if item.get("is_swpie", "0") != "0":
                 print(self.location)
-                self.driver.swipe(self.location[0]["endX"], self.location[0]["endY"], self.location[1]["endX"], self.location[1]["endY"]+10)
+                self.driver.swipe(self.location[0]["endX"], self.location[0]["endY"], self.location[1]["endX"],
+                                  self.location[1]["endY"] + 10)
 
         return True
 
@@ -117,7 +118,8 @@ class CardsSortPage:
                     self.testInfo[0]["msg"] = msg
                     result = False
                 if resp['text'] not in self.get_value:  # 删除后数据对比
-                    msg = "卡片排序失败" + str(self.get_value) + "当前首页第一条卡片数据为：" + resp["text"] + "排序成功的第一个卡片值为："+".".join(self.get_value)
+                    msg = "卡片排序失败" + str(self.get_value) + "当前首页第一条卡片数据为：" + resp["text"] + "排序成功的第一个卡片值为：" + ".".join(
+                        self.get_value)
                     self.msg = m_s_g + msg
                     print(msg)
                     self.testInfo[0]["msg"] = msg
