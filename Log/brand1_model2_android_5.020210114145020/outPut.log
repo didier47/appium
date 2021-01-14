@@ -1,4 +1,0 @@
-2021-01-14 14:50:24,225  - INFO - ----  test001_Primer test_//*[@text="Perfil"]_click          ----
-2021-01-14 14:50:25,391  - INFO - ----  test001_Primer test_//*[@text="Iniciar sesión"]_click          ----
-2021-01-14 14:50:26,278  - INFO - ----  test001_Primer test_ _           ----
-2021-01-14 14:50:26,390  - INFO - [CheckPoint_1]: testFirstOpen_ : OK
