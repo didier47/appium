@@ -32,7 +32,7 @@ def countInfo(**kwargs):
     _info["checkStep"] = check_step
 
     if kwargs["result"]:
-        _info["result"] = "por"
+        _info["result"] = "satisfactorio"
         kwargs["logTest"].checkPointOK(driver=kwargs["driver"], caseName=kwargs["testInfo"][0]["title"],
                                        checkPoint=kwargs["caseName"] + "_" + kwargs["testInfo"][0].get(
                                            "msg", " "))
