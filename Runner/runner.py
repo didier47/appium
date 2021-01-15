@@ -1,6 +1,8 @@
 import random
 import sys
 
+from TestCase.eribank_test import EribankTest
+
 sys.path.append("..")
 import platform
 from Base.BaseAndroidPhone import *
@@ -58,7 +60,7 @@ def runnerPool(getDevices):
 def runnerCaseApp(devices):
     starttime = datetime.now()
     suite = unittest.TestSuite()
-    suite.addTest(ParametrizedTestCase.parametrize(HomeTest, param=devices))
+    suite.addTest(ParametrizedTestCase.parametrize(EribankTest, param=devices))  # nota Test a realizar
 
     unittest.TextTestRunner(verbosity=2).run(suite)
     endtime = datetime.now()
@@ -80,7 +82,7 @@ if __name__ == '__main__':
             app["port"] = str(random.randint(4700, 4900))
             app["bport"] = str(random.randint(4700, 4900))
             app["systemPort"] = str(random.randint(4700, 4900))
-            app["app"] = PATH("../app/com.ximalaya.ting.android.apk")
+            app["app"] = PATH("../app/eribank.apk")  # nota App a utilizar
 
             l_devices.append(app)
 

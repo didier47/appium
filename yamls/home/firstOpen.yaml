@@ -3,11 +3,11 @@ testinfo:
     title: Primer test
     info: Abrir aplicación
 testcase:
-  - element_info: //*[@text="Perfil"]
+  - element_info: //*[@text="Profile"]
     find_type: xpath
     operate_type: click
     info: Perfil
-  - element_info: //*[@text="Iniciar sesión"]
+  - element_info: //*[@text="Sign in"]
     find_type: xpath
     operate_type: click
     info: Iniciar sesión

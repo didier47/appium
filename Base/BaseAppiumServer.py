@@ -26,7 +26,7 @@ class AppiumServer:
             print(cmd)
             if platform.system() == "Windows":
                 t1 = RunServer(cmd)
-                p = Process(target=t1.start())
+                p = Process(target=t1.start())  # TODO Analizar multiprocesos
                 p.start()
                 while True:
                     print("--------start_win_server-------------")

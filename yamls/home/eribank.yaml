@@ -1,0 +1,23 @@
+testinfo:
+  - id: test001
+    title: Primer test
+    info: Abrir aplicación
+testcase:
+  - element_info: //*[@text="Username"]
+    find_type: xpath
+    operate_type: set_value
+    info: Username
+    msg: company
+  - element_info: //*[@text="Password"]
+    find_type: xpath
+    operate_type: set_value
+    info: Password
+    msg: company
+  - element_info: //*[@text="Login"]
+    find_type: xpath
+    operate_type: click
+    info: Login
+check:
+  - blouns: //*[@text="No usado"]
+    find_type: xpath
+    info: Abra la página con éxito
