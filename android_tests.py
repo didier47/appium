@@ -8,8 +8,8 @@ class AndroidTests(unittest.TestCase):
     def setUp(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '4.4.2'
-        desired_caps['deviceName'] = 'DU2TAN15AJ049163'
+        desired_caps['platformVersion'] = '10'
+        desired_caps['deviceName'] = 'Mi A2'
         desired_caps['appPackage'] = 'com.android.calculator2'
         desired_caps['appActivity'] = '.Calculator'
         remote = "http://127.0.0.1:" + "4723" + "/wd/hub"
@@ -19,12 +19,10 @@ class AndroidTests(unittest.TestCase):
         self.d.quit()
 
     def test_plus(self):
-        self.d.find_element_by_xpath("//android.widget.Button[@text='1']").click()
-        self.d.find_element_by_id("com.android.calculator2:id/plus").click()
-        self.d.find_element_by_xpath("//android.widget.Button[@text='9']").click()
-        self.d.find_element_by_id("com.android.calculator2:id/equal").click()
+        self.d.find_element_by_id("com.google.android.calculator:id/digit_1").click()
+        self.d.find_element_by_id("com.google.android.calculator:id/digit_9").click()
         time.sleep(1)
-        result = self.d.find_element_by_xpath("//android.widget.EditText[@text='10']")
+        result = self.d.find_element_by_id("com.google.android.calculator:id/result_preview")
         if result is not None:
             print("Prueba aprobada")
         else:
