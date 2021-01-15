@@ -16,8 +16,8 @@ class myHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        # Send the html message
-        self.wfile.write(b"Hello World !")  # 发送信息给客户端
+
+        self.wfile.write(b"Hello World !")
         print("do_GET")
 
 
@@ -30,5 +30,4 @@ def open_web_server():
 if __name__ == "__main__":
     p = Process(target=open_web_server, args=())
     p.start()
-    # subprocess.Popen("taskkill /F /T /PID " + str(p.pid), shell=True)
     print("kkk")

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import unittest
 
@@ -15,17 +14,15 @@ def appium_testcase(devices):
     desired_caps = {}
 
     if str(devices["platformName"]).lower() == "android":
-        # desired_caps['appPackage'] = devices["appPackage"]
-        # desired_caps['appActivity'] = devices["appActivity"]
+
         desired_caps['udid'] = devices["deviceName"]
         desired_caps['app'] = devices["app"]
-        # desired_caps["recreateChromeDriverSessions"] = "True"
-        # 解决多次切换到webview报错问题，每次切换到非chrome-Driver时kill掉session 注意这个设置在appium 1.5版本上才做了处理
+
+
     else:
-        # desired_caps['automationName'] = devices["automationName"] # Xcode8.2以上无UIAutomation,需使用XCUITest
+
         desired_caps['bundleId'] = devices["bundleId"]
         desired_caps['udid'] = devices["udid"]
-        # desired_caps['newCommandTimeout'] = 3600  # 1 hour
 
     desired_caps['platformVersion'] = devices["platformVersion"]
     desired_caps['platformName'] = devices["platformName"]
@@ -37,9 +34,8 @@ def appium_testcase(devices):
     desired_caps["resetKeyboard"] = "True"
     desired_caps["systemPort"] = devices["systemPort"]
 
-    # desired_caps['app'] = devices["app"]
     remote = "http://127.0.0.1:" + str(devices["port"]) + "/wd/hub"
-    # remote = "http://127.0.0.1:" + "4723" + "/wd/hub"
+
     driver = webdriver.Remote(remote, desired_caps)
     return driver
 
@@ -59,7 +55,7 @@ class ParametrizedTestCase(unittest.TestCase):
         pass
         cls.driver = appium_testcase(devicess)
         cls.devicesName = devicess["deviceName"]
-        cls.logTest = myLog().getLog(cls.devicesName)  # 每个设备实例化一个日志记录器
+        cls.logTest = myLog().getLog(cls.devicesName)
 
     def setUp(self):
         pass
@@ -75,8 +71,6 @@ class ParametrizedTestCase(unittest.TestCase):
 
     @staticmethod
     def parametrize(testcase_klass, param=None):
-        # print("---parametrize-----")
-        # print(param)
         testloader = unittest.TestLoader()
         testnames = testloader.getTestCaseNames(testcase_klass)
         suite = unittest.TestSuite()

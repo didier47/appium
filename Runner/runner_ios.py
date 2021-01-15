@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-__author__ = 'shikun'
-
 import random
 import sys
 
@@ -51,15 +47,10 @@ def runnerCaseApp(devices):
     suite = unittest.TestSuite()
 
     suite.addTest(ParametrizedTestCase.parametrize(HomeTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(TestWeiQunTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(HistoryTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(ContactTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(MeTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(CardsTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(TeamTest, param=devices))
+
     unittest.TextTestRunner(verbosity=2).run(suite)
     endtime = datetime.now()
-    countDate(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str((endtime - starttime).seconds) + "秒")
+    countDate(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str((endtime - starttime).seconds) + "segundo")
 
 
 if __name__ == '__main__':

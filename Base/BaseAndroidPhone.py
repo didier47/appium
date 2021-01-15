@@ -1,21 +1,17 @@
-# -*- coding: utf-8 -*-
-__author__ = 'shikun'
-
 import os
 import subprocess
 
 
-# 得到手机信息
 def getPhoneInfo(devices):
     cmd = "adb -s " + devices + " shell cat /system/build.prop "
     print(cmd)
-    # phone_info = os.popen(cmd).readlines()
+
     phone_info = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
     result = {"release": "5.0", "model": "model2", "brand": "brand1", "device": "device1"}
-    release = "ro.build.version.release="  # 版本
-    model = "ro.product.model="  # 型号
-    brand = "ro.product.brand="  # 品牌
-    device = "ro.product.device="  # 设备名
+    release = "ro.build.version.release="
+    model = "ro.product.model="
+    brand = "ro.product.brand="
+    device = "ro.product.device="
     for line in phone_info:
         for i in line.split():
             temp = i.decode()
@@ -35,7 +31,6 @@ def getPhoneInfo(devices):
     return result
 
 
-# 得到最大运行内存
 def get_men_total(devices):
     cmd = "adb -s " + devices + " shell cat /proc/meminfo"
     get_cmd = os.popen(cmd).readlines()
@@ -48,7 +43,6 @@ def get_men_total(devices):
     return int(men_total)
 
 
-# 得到几核cpu
 def get_cpu_kel(devices):
     cmd = "adb -s " + devices + " shell cat /proc/cpuinfo"
     get_cmd = os.popen(cmd).readlines()
@@ -60,7 +54,6 @@ def get_cpu_kel(devices):
     return str(int_cpu) + "核"
 
 
-# 得到手机分辨率
 def get_app_pix(devices):
     result = os.popen("adb -s " + devices + " shell wm size", "r")
     return result.readline().split("Physical size:")[1]

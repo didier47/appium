@@ -1,6 +1,5 @@
 import requests
 
-# requests.packages.urllib.disable_warnings(InsecureRequestWarning)
 from urllib3 import disable_warnings
 from urllib3.connectionpool import InsecureRequestWarning
 
@@ -9,7 +8,6 @@ disable_warnings(InsecureRequestWarning)
 import json
 
 
-# 封装HTTP GET请求方法
 def get(**kwargs):
     data = {}
     url = kwargs["protocol"] + "://" + kwargs["host"] + kwargs["url"]
@@ -19,14 +17,13 @@ def get(**kwargs):
         r.encoding = 'UTF-8'
         data = json.loads(r.text)
     data["status_code"] = r.status_code
-    # print(data)
+
     return data
 
 
-# 封装HTTP POST请求方法,支持上传图片
 def post(files=None, **kwargs):
     result = {}
-    # url = kwargs["protocol"] + "://" + kwargs["host"] + ':' + str(kwargs["port"])+ kwargs["url"]
+
     url = kwargs["protocol"] + "://" + kwargs["host"] + kwargs["url"]
     data = None
     if kwargs.get("data", "none") != "none":
@@ -42,14 +39,9 @@ def post(files=None, **kwargs):
     return result
 
 
-'''
- 登陆
-'''
-
-
 def post_login(**kwargs):
     result = {}
-    # url = kwargs["protocol"] + "://" + kwargs["host"] + ':' + str(kwargs["port"])+ kwargs["url"]
+
     url = kwargs["protocol"] + "://" + kwargs["host"] + kwargs["url"]
     data = None
     if kwargs.get("data", "none") != "none":
@@ -63,8 +55,7 @@ def post_login(**kwargs):
     result["status_code"] = r.status_code
     if result["status_code"] == 200:
         result["cookie"] = r.headers.get("Set-Cookie")
-    # print("--登陆接口--")
-    # print(result)
+
     return result
 
 

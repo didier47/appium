@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import platform
 import socket
@@ -25,14 +24,14 @@ class AppiumServer:
             cmd = "appium --session-override  -p %s -bp %s -U %s" % (
                 self.kwargs[i]["port"], self.kwargs[i]["bport"], self.kwargs[i]["devices"])
             print(cmd)
-            if platform.system() == "Windows":  # windows下启动server
+            if platform.system() == "Windows":
                 t1 = RunServer(cmd)
                 p = Process(target=t1.start())
                 p.start()
                 while True:
                     print("--------start_win_server-------------")
                     if self.win_is_runnnig("http://127.0.0.1:" + self.kwargs[i]["port"] + "/wd/hub" + "/status"):
-                        print("-------win_server_ 成功--------------")
+                        print("-------win_server--------------")
                         break
             else:
                 appium = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1,
@@ -73,19 +72,17 @@ class AppiumServer:
             os.popen("taskkill /f /im node.exe")
         else:
             for device in devices:
-                # mac
                 cmd = "lsof -i :{0}".format(device["port"])
                 plist = os.popen(cmd).readlines()
                 plisttmp = plist[1].split("    ")
                 plists = plisttmp[1].split(" ")
-                # print plists[0]
+
                 os.popen("kill -9 {0}".format(plists[0]))
 
     def re_start_server(self):
         """reStart the appium server
         """
-        # self.stop_server()
-        # self.start_server()
+
         pass
 
 

@@ -24,9 +24,8 @@ class Log:
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.INFO)
 
-        # create handler,write log
         fh = logging.FileHandler(os.path.join(logPath, "outPut.log"))
-        # Define the output format of formatter handler
+
         formatter = logging.Formatter('%(asctime)s  - %(levelname)s - %(message)s')
         fh.setFormatter(formatter)
 
@@ -45,8 +44,7 @@ class Log:
         """
         startLine = "----  " + caseNo + "   " + "   " + \
                     "  ----"
-        # startLine = "----  " + caseNo + "   " + "START" + "   " + \
-        #             "  ----"
+
         self.logger.info(startLine)
 
     def buildEndLine(self, caseNo):
@@ -88,9 +86,7 @@ class Log:
         self.checkNo += 1
 
         self.logger.info("[CheckPoint_" + str(self.checkNo) + "]: " + checkPoint + ": OK")
-        print("==用例_%s检查点成功==" % caseName)
-        # take shot 默认去掉成功截图
-        # self.screenshotOK(driver, caseName)
+        print("==Use case_%s checkpoint exitoso==" % caseName)
 
     def checkPointNG(self, driver, caseName, checkPoint):
         """write the case's checkPoint(NG)
@@ -103,7 +99,6 @@ class Log:
 
         self.logger.info("[CheckPoint_" + str(self.checkNo) + "]: " + checkPoint + ": NG")
 
-        # take shot
         return self.screenshotNG(driver, caseName)
 
     def screenshotOK(self, driver, caseName):
@@ -115,9 +110,8 @@ class Log:
         screenshotPath = os.path.join(logPath, caseName)
         screenshotName = "CheckPoint_" + str(self.checkNo) + "_OK.png"
 
-        # wait for animations to complete before taking screenshot
         sleep(1)
-        # driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
+
         driver.get_screenshot_as_file(os.path.join(screenshotPath + screenshotName))
 
     def screenshotNG(self, driver, caseName):
@@ -129,7 +123,6 @@ class Log:
         screenshotPath = os.path.join(logPath, caseName)
         screenshotName = "CheckPoint_" + str(self.checkNo) + "_NG.png"
 
-        # wait for animations to complete before taking screenshot
         sleep(1)
         driver.get_screenshot_as_file(os.path.join(screenshotPath + screenshotName))
         return os.path.join(screenshotPath + screenshotName)
@@ -143,7 +136,6 @@ class Log:
         screenshotPath = os.path.join(logPath, caseName)
         screenshotName = "ERROR.png"
 
-        # wait for animations to complete before taking screenshot
         sleep(1)
         driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
 
@@ -171,5 +163,5 @@ class myLog:
 
 if __name__ == "__main__":
     logTest = myLog.getLog("devices")
-    # logger = logTest.getMyLogger()
+
     logTest.buildStartLine("11111111111111111111111")

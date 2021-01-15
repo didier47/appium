@@ -1,10 +1,6 @@
 import os
 import subprocess
 
-'''
-获取ios下的硬件信息
-'''
-
 
 def get_ios_devices():
     devices = []
@@ -39,7 +35,6 @@ def get_ios_product_name(udid):
             return t[0]
 
 
-# 编译facebook的wda到真机
 def build_wda_ios(udid):
     os.popen(
         "xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination id=" + udid + " test")

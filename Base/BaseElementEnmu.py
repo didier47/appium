@@ -1,5 +1,4 @@
 class Element(object):
-    # 常用操作关键字
     find_element_by_id = "id"
     find_elements_by_id = "ids"
     INDEX = "index"
@@ -21,7 +20,6 @@ class Element(object):
 
     GET_CONTENT_DESC = "get_content_desc"
 
-    # 错误日志
     TIME_OUT = "timeout"
     NO_SUCH = "noSuch"
     WEB_DROVER_EXCEPTION = "WebDriverException"
@@ -29,14 +27,13 @@ class Element(object):
     STALE_ELEMENT_REFERENCE_EXCEPTION = "StaleElementReferenceException"
     DEFAULT_ERROR = "default_error"
 
-    # 检查点
-    CONTRARY = "contrary"  # 相反检查点，表示如果检查元素存在就说明失败，如删除后，此元素依然存在
-    CONTRARY_GETVAL = "contrary_getval"  # 检查点关键字contrary_getval: 相反值检查点，如果对比成功，说明失败
-    DEFAULT_CHECK = "default_check"  # 默认检查点，就是查找页面元素
-    COMPARE = "compare"  # 历史数据和实际数据对比
+    CONTRARY = "contrary"
+    CONTRARY_GETVAL = "contrary_getval"
+    DEFAULT_CHECK = "default_check"
+    COMPARE = "compare"
     TOAST = "toast"
 
-    RE_CONNECT = 1  # 是否打开失败后再次运行一次用例
+    RE_CONNECT = 1
 
     INFO_FILE = "info.pickle"
     SUM_FILE = "sum.pickle"

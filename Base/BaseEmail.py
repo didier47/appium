@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import smtplib
 from email.header import Header
@@ -18,19 +17,13 @@ def _format_addr(s):
 
 
 def send_mail(**kwargs):
-    """
-    :param f: 附件路径
-    :param to_addr:发给的人 []
-    :return:
-    """
     from_addr = kwargs["mail_user"]
     password = kwargs["mail_pass"]
-    # to_addr = "ashikun@126.com"
+
     smtp_server = kwargs["mail_host"]
 
     msg = MIMEMultipart()
 
-    # msg = MIMEText('hello, send by Python...', 'plain', 'utf-8')
     msg['From'] = _format_addr('来自<%s>接口测试' % from_addr)
     msg['To'] = _format_addr(' <%s>' % kwargs["to_addr"])
     msg['Subject'] = Header(kwargs["header_msg"], 'utf-8').encode()

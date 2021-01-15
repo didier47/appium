@@ -1,5 +1,3 @@
-__author__ = 'shikun'
-
 import os
 
 import xlsxwriter
@@ -14,7 +12,7 @@ class OperateReport:
         self.wd = wd
 
     def init(self, worksheet, data, devices):
-        # 设置列行的宽高
+
         worksheet.set_column("A:A", 15)
         worksheet.set_column("B:B", 20)
         worksheet.set_column("C:C", 20)
@@ -58,7 +56,6 @@ class OperateReport:
         _write_center(worksheet, "C5", "失败总数", self.wd)
         _write_center(worksheet, "C6", "测试耗时", self.wd)
 
-        # data1 = {"test_sum": 100, "test_success": 80, "test_failed": 20, "test_date": "2018-10-10 12:10"}
         _write_center(worksheet, "D3", data['sum'], self.wd)
         _write_center(worksheet, "D4", data['pass'], self.wd)
         _write_center(worksheet, "D5", data['fail'], self.wd)
@@ -81,7 +78,7 @@ class OperateReport:
         pie(self.wd, worksheet)
 
     def detail(self, worksheet, info):
-        # 设置列行的宽高
+
         worksheet.set_column("A:A", 30)
         worksheet.set_column("B:B", 20)
         worksheet.set_column("C:C", 20)
@@ -120,7 +117,7 @@ class OperateReport:
 
         temp = 3
         for item in info:
-            # print(item)
+
             _write_center(worksheet, "A" + str(temp), item["phoneName"], self.wd)
             _write_center(worksheet, "B" + str(temp), item["id"], self.wd)
             _write_center(worksheet, "C" + str(temp), item["title"], self.wd)
@@ -147,13 +144,6 @@ def get_format(wd, option={}):
     return wd.add_format(option)
 
 
-# def link_format(wd):
-#     red_format = wd.add_format({
-#         'font_color': 'red',
-#         'bold': 1,
-#         'underline': 1,
-#         'font_size': 12,
-#     })
 def get_format_center(wd, num=1):
     return wd.add_format({'align': 'center', 'valign': 'vcenter', 'border': num})
 
@@ -168,8 +158,6 @@ def _write_center(worksheet, cl, data, wd):
 
 def set_row(worksheet, num, height):
     worksheet.set_row(num, height)
-
-    # 生成饼形图
 
 
 def pie(workbook, worksheet):
@@ -197,4 +185,3 @@ if __name__ == '__main__':
     bc.init(worksheet, sum)
     bc.detail(worksheet2, info)
     bc.close()
-    #

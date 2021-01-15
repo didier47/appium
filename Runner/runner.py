@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-__author__ = 'shikun'
-
 import random
 import sys
 
@@ -26,7 +22,7 @@ PATH = lambda p: os.path.abspath(
 
 def kill_adb():
     if platform.system() == "Windows":
-        # os.popen("taskkill /f /im adb.exe")
+
         os.system(PATH("../app/kill5037.bat"))
     else:
         os.popen("killall adb")
@@ -63,10 +59,10 @@ def runnerCaseApp(devices):
     starttime = datetime.now()
     suite = unittest.TestSuite()
     suite.addTest(ParametrizedTestCase.parametrize(HomeTest, param=devices))
-    # suite.addTest(ParametrizedTestCase.parametrize(HomeTest, param=devices)) #加入测试类
+
     unittest.TextTestRunner(verbosity=2).run(suite)
     endtime = datetime.now()
-    countDate(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str((endtime - starttime).seconds) + "秒")
+    countDate(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str((endtime - starttime).seconds) + "segundo")
 
 
 if __name__ == '__main__':
@@ -84,7 +80,7 @@ if __name__ == '__main__':
             app["port"] = str(random.randint(4700, 4900))
             app["bport"] = str(random.randint(4700, 4900))
             app["systemPort"] = str(random.randint(4700, 4900))
-            app["app"] = PATH("../app/com.ximalaya.ting.android.apk")  # 测试的app路径,喜马拉雅app
+            app["app"] = PATH("../app/com.ximalaya.ting.android.apk")
 
             l_devices.append(app)
 
