@@ -65,7 +65,7 @@ class OperateReport:
 
         worksheet.merge_range('E4:E6', 'appium1.7+python3', get_format_center(self.wd))
         _write_center(worksheet, "A8", 'modelo', self.wd)
-        _write_center(worksheet, "B8", 'por', self.wd)
+        _write_center(worksheet, "B8", 'satisfactorio', self.wd)
         _write_center(worksheet, "C8", 'fracaso', self.wd)
 
         temp = 9
@@ -179,7 +179,7 @@ if __name__ == '__main__':
     info = [
         {"id": 1, "title": "Abierto por primera vez", "caseName": "testf01", "result": "por", "phoneName": "Samsung"},
         {"id": 1, "title": "Abierto por primera vez",
-         "caseName": "testf01", "result": "por", "img": "d:\\1.PNG", "phoneName": "Huawei"}]
+         "caseName": "testf01", "result": "satisfactorio", "img": "d:\\1.PNG", "phoneName": "Huawei"}]
     workbook = xlsxwriter.Workbook('Report.xlsx')
     worksheet = workbook.add_worksheet("Resumen de la prueba")
     worksheet2 = workbook.add_worksheet("Detalles de la prueba")
