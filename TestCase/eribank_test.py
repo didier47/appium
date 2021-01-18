@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 
 from Base.BaseRunner import ParametrizedTestCase
 from PageObject.Home.FirstOpenPage import FirstOpenPage
@@ -16,6 +17,7 @@ class EribankTest(ParametrizedTestCase):
 
         page = FirstOpenPage(app)
         page.operate()
+        time.sleep(3)
         page.checkPoint()
 
     @classmethod

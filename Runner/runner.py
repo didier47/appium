@@ -1,5 +1,6 @@
 import random
 import sys
+import time
 
 from TestCase.eribank_test import EribankTest
 
@@ -46,8 +47,10 @@ def runnerPool(getDevices):
 
         _initApp["app"] = getDevices[i]["app"]
         apkInfo = ApkInfo(_initApp["app"])
-        _initApp["appPackage"] = apkInfo.getApkBaseInfo()[0]
+        _initApp["appPackage"] = apkInfo.getApkBaseInfo()[0]  # Nota (Si conozco de antemano el nombre del paquete y el activity main, no es necesario utilizar el código para descompilar la app
+        # 'com.experitest.ExperiBank'
         _initApp["appActivity"] = apkInfo.getApkActivity()
+        # '\'com.experitest.ExperiBank.LoginActivity\''
         _pool.append(_initApp)
         devices_Pool.append(_initApp)
 
@@ -61,6 +64,7 @@ def runnerCaseApp(devices):
     starttime = datetime.now()
     suite = unittest.TestSuite()
     suite.addTest(ParametrizedTestCase.parametrize(EribankTest, param=devices))  # nota Test a realizar
+    suite.addTest(ParametrizedTestCase.parametrize(EribankTest, param=devices))
 
     unittest.TextTestRunner(verbosity=2).run(suite)
     endtime = datetime.now()
@@ -82,7 +86,7 @@ if __name__ == '__main__':
             app["port"] = str(random.randint(4700, 4900))
             app["bport"] = str(random.randint(4700, 4900))
             app["systemPort"] = str(random.randint(4700, 4900))
-            app["app"] = PATH("../app/eribank.apk")  # nota App a utilizar
+            app["app"] = PATH("../app/eribank.apk")  # nota App a utilizar (Opcional)
 
             l_devices.append(app)
 

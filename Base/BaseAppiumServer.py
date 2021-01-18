@@ -41,7 +41,7 @@ class AppiumServer:
                     time.sleep(1)
                     print("---------start_server----------")
                     if 'listener started' in appium_line or 'Error: listen' in appium_line:
-                        print("----server_ 成功---")
+                        print("----server_success---")
                         break
 
     def win_is_runnnig(self, url):

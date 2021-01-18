@@ -64,9 +64,9 @@ class OperateReport:
         _write_center(worksheet, "E3", "Lenguaje de escritura", self.wd)
 
         worksheet.merge_range('E4:E6', 'appium1.7+python3', get_format_center(self.wd))
-        _write_center(worksheet, "A8", 'modelo', self.wd)
-        _write_center(worksheet, "B8", 'por', self.wd)
-        _write_center(worksheet, "C8", 'fracaso', self.wd)
+        _write_center(worksheet, "A8", 'Estado', self.wd)
+        _write_center(worksheet, "B8", 'Exitoso', self.wd)
+        _write_center(worksheet, "C8", 'Fallido', self.wd)
 
         temp = 9
         for item in devices:
