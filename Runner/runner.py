@@ -44,13 +44,10 @@ def runnerPool(getDevices):
         _initApp["port"] = getDevices[i]["port"]
         _initApp["automationName"] = "uiautomator2"
         _initApp["systemPort"] = getDevices[i]["systemPort"]
-
         _initApp["app"] = getDevices[i]["app"]
-        apkInfo = ApkInfo(_initApp["app"])
-        _initApp["appPackage"] = apkInfo.getApkBaseInfo()[0]  # Nota (Si conozco de antemano el nombre del paquete y el activity main, no es necesario utilizar el código para descompilar la app
-        # 'com.experitest.ExperiBank'
-        _initApp["appActivity"] = apkInfo.getApkActivity()
-        # '\'com.experitest.ExperiBank.LoginActivity\''
+        _initApp[
+            "appPackage"] = 'com.experitest.ExperiBank'  # Nota (Si conozco de antemano el nombre del paquete y el activity main, no es necesario utilizar el código para descompilar la app
+        _initApp["appActivity"] = 'com.experitest.ExperiBank.LoginActivity'
         _pool.append(_initApp)
         devices_Pool.append(_initApp)
 
